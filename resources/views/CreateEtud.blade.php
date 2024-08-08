@@ -24,7 +24,7 @@
 
 
 
-            <form method="POST" action="/create/traitement" class="form-group">
+            <form method="POST" action="/create/traitement" class="form-group" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group">
@@ -40,6 +40,10 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">classe</label>
                     <input type="text" class="form-control" name="classe" id="exampleInputPassword1" >
+                </div>
+                <div class="form-group">
+                    <label for="image">image</label>
+                    <input type="file" class="form-control" name="image" id="image" >
                 </div>
 
                 <button type="submit" class="btn btn-success mt-4">Ajouter un Etudiant</button>

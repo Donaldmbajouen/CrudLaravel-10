@@ -30,7 +30,8 @@ class CrudController extends Controller
         $request->validate([
             'nom'=>'required|min:4|string',
             'prenom'=>'required|string',
-            'classe'=>'required|min:4'
+            'classe'=>'required|min:4',
+            'image' => ['image', 'max:2000']
         ]);
 
         $etudiants = new Etudiant();
@@ -61,6 +62,8 @@ class CrudController extends Controller
         $etudiants->nom = $request->nom;
         $etudiants->prenom = $request->prenom;
         $etudiants->classe = $request->classe;
+        $etudians->image = $request->image;
+        $etudians->image -> store('images', 'public');
         $etudiants->update();
 
         return redirect('/')-> with('status', 'Etudiant modifier avec succes');
